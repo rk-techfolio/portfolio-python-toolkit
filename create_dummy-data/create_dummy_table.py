@@ -1,11 +1,11 @@
 """Create Dummy Table.
 
     ライブラリ『Faker」を使用したダミーテーブルを作成するサンプルコード。
-    LINE ID,Agent,Userのテーブルのサンプルを作成。
+    ID,Agent,Userのテーブルのサンプルを作成。
 
 """
 
-from faker import Faker
+from Faker import Faker
 import random
 import csv
 from typing import List, Dict, TextIO, cast
@@ -18,22 +18,22 @@ Faker.seed(0)
 num_messages = 100000
 
 
-def create_line_id_table():
+def create_id_table():
     num_users = 1000
-    line_id_table = []
+    id_table = []
     for i in range(num_users):
-        line_id = random.randint(1, 1000)
+        id = random.randint(1, 1000)
         create_time = datetime.now() - timedelta(days=random.randint(0, 365),
                                                  seconds=random.randint(0,
                                                                         86400))
-        line_id_table.append({
-            "line_id": line_id,
+        id_table.append({
+            "id": id,
             "create_at": create_time.isoformat()
         })
 
-    save_to_csv(line_id_table, "result/line_id_table.csv")
+    save_to_csv(id_table, "result/line_id_table.csv")
 
-    return line_id_table
+    return id_table
 
 
 def create_user_table(line_id_table):
@@ -41,7 +41,7 @@ def create_user_table(line_id_table):
     for i in line_id_table:
         user_id = random.randint(1001, 2000)
         store_name = restaurant_name()  # Fakerになくても自作できる
-        line_id = i["line_id"]
+        id = i["id"]
         agent_id = random.randint(2001, 3000)
         icon_url = f"https://buket_name.s3.ap-northeast-1.amazonaws.com/{fake.file_name(category='image')}"
         stage = random.choice(["NEW", "EXISTING", "PROSPECT"])
@@ -53,7 +53,7 @@ def create_user_table(line_id_table):
         user_table.append({
             "user_id": user_id,
             "store_name": store_name,
-            "line_id": line_id,
+            "id": id,
             "agent_id": agent_id,
             "icon_url": icon_url,
             "stage": stage,
@@ -117,7 +117,7 @@ def save_to_csv(data: List[Dict[str, str]], filename: str) -> None:
 
 
 def main():
-    line_id_table = create_line_id_table()
+    line_id_table = create_id_table()
     user_table = create_user_table(line_id_table)
     agent_table(user_table)
 

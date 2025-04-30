@@ -1,4 +1,4 @@
-user_id,store_name,line_id,agent_id,icon_url,stage,create_at,update_at
+user_id,store_name,id,agent_id,icon_url,stage,create_at,update_at
 1448,SunnyLoungeBar,333,2010,https://buket_name.s3.ap-northeast-1.amazonaws.com/son.jpg,PROSPECT,2024-06-08T05:55:01.826072,2024-11-11T01:56:18.832791
 1366,SunnyLoungeBakery,705,2701,https://buket_name.s3.ap-northeast-1.amazonaws.com/amount.jpg,NEW,2024-05-29T17:54:12.826091,2024-01-31T04:46:11.832827
 1973,RusticGardenCafe,145,2148,https://buket_name.s3.ap-northeast-1.amazonaws.com/much.jpeg,EXISTING,2024-06-08T07:47:54.826097,2024-07-18T18:17:12.832854
